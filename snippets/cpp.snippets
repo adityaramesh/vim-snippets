@@ -1,15 +1,60 @@
 #
+# Main
+#
+
+snippet main "main function"
+int main()
+{
+	${1:/* Body. */}
+	return EXIT_SUCCESS;
+}
+endsnippet
+
+#
+# Preprocessor.
+#
+
+snippet inc "include directive"
+#include <${1:algorithm}>
+endsnippet
+
+snippet ifndef "conditional macro definition"
+#ifndef $1
+	#define ${1:SYMBOL} ${2:VALUE}
+#endif
+endsnippet
+
+#
+# Namespaces.
+#
+
+# The space before `name` is subsumed into the tabstop so that the namespace can
+# easily be made anonymous.
+
+snippet ns "namespace declaration"
+namespace${1: name} {
+
+${2:/* Body. */}
+
+}
+endsnippet
+
+snippet nsi "inline namespace declaration"
+namespace { ${1} }
+endsnippet
+
+#
 # Control flow.
 #
 
 snippet if "if statement"
-if (${1: /* Condition. */}) {
+if (${1:/* Condition. */}) {
 	${2:/* Body. */}
 }
 endsnippet
 
 snippet elif "else if statement"
-else if (${1: /* Condition. */}) {
+else if (${1:/* Condition. */}) {
 	${2:/* Body. */}
 }
 endsnippet
@@ -23,10 +68,10 @@ endsnippet
 snippet sw "switch statement"
 switch (${1}) {
 case ${2}:
-	${3: /* Body. */}
-	${4: break; }
-${5: default:
-	${6: /* Body. */}
+	${3:/* Body. */}
+	${4:break; }
+${5:default:
+	${6:/* Body. */}
 }
 }
 endsnippet
@@ -88,7 +133,20 @@ endsnippet
 # Foreach loop.
 
 snippet fore "foreach loop"
-for_each(begin($1), end(${1:const}), [&](const auto& ${2:x}) {
-	${3:/* Body. */}
+for_each(begin($1), end(${1:const}), [&](${3:const auto&} ${2:x}) {
+	${4:/* Body. */}
 });
+endsnippet
+
+#
+# Templates.
+#
+
+snippet tem "template declaration"
+template <${1}>
+${2:/* Body. */}
+endsnippet
+
+snippet < "template arguments"
+<${1}>
 endsnippet
