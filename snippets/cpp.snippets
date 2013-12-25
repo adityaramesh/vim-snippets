@@ -1,6 +1,22 @@
+#
+# For-loops
+#
+
+# The usual for-loop with unsigned integer induction variable.
+
 snippet for "for loop (for)"
-for (${2:i} = 0; $2 < ${1:count}; ${3:++$2})
+for (auto ${2:i} = 0u; $2 != ${1:count}; ${3:++$2})
 {
-	${VISUAL}${0:${VISUAL/(.*)/(?1::\/* code *\/)/}}
+	${4:/* Body. */}
+}
+endsnippet
+
+# A for-loop in which one needs access to the iterator being used to traverse a
+# collection.
+
+snippet for "iterator for loop (fori)"
+for (auto ${2:i} = begin($1); $2 != end(${1:cont}); ${3:++$2})
+{
+	${4:/* Body. */}
 }
 endsnippet
