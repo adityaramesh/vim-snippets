@@ -28,11 +28,11 @@ endsnippet
 # Namespaces.
 #
 
-# The space before `name` is subsumed into the tabstop so that the namespace can
+# The space after `name` is subsumed into the tabstop so that the namespace can
 # easily be made anonymous.
 
 snippet ns "namespace declaration"
-namespace${1: name} {
+namespace ${1:name }{
 
 ${2:/* Body. */}
 
@@ -70,9 +70,9 @@ switch (${1}) {
 case ${2}:
 	${3:/* Body. */}
 	${4:break; }
-${5:default:
-	${6:/* Body. */}
-}
+${5:default:${6:
+	/* Body. */
+}}
 }
 endsnippet
 
@@ -145,8 +145,4 @@ endsnippet
 snippet tem "template declaration"
 template <${1}>
 ${2:/* Body. */}
-endsnippet
-
-snippet < "template arguments"
-<${1}>
 endsnippet
