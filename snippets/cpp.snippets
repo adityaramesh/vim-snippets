@@ -12,11 +12,31 @@ for (auto ${2:i} = 0u; $2 != ${1:count}; ${3:++$2})
 endsnippet
 
 # A for-loop in which one needs access to the iterator being used to traverse a
-# collection.
+# container.
 
 snippet fori "iterator for-loop"
 for (auto ${2:i} = begin($1); $2 != end(${1:cont}); ${3:++$2})
 {
 	${4:/* Body. */}
+}
+endsnippet
+
+#
+# Range-for loop.
+#
+
+snippet forr "range-for loop"
+for (${3:const auto&} ${2:x} : ${1:cont}) {
+	${4:/* Body. */}
+}
+endsnippet
+
+#
+# Range-for loop over list.
+#
+
+snippet forl "list range-for loop"
+for (const auto ${2:x} : ${1:{1, 2, 3}}) {
+	${3:/* Body */}
 }
 endsnippet
