@@ -17,4 +17,4 @@ templates. Currently, five types of for loops are supported:
 - A for loop whose induction variable is an iterator over a container. 
 - A range-for loop over the elements of a container.
 - A range-for loop over an explicit list of elements.
-- A foreach loop implemented using `std::for_each`.
+- A foreach loop implemented using `std::for_each` and a generic lambda.
